@@ -4,6 +4,12 @@
 # SHA256SUMS.sig file.
 slug="$1"
 
+if [ -z "${slug}" ]; then
+  message error "Usage: ${0} BASENAME"
+  message error "  Where BASENAME is the base name for the SHA256SUMS and SHA256SUMS.sig files."
+  exit 1
+fi
+
 # message prints text with a color, redirected to stderr in the event of
 # warning or error messages.
 message() {
